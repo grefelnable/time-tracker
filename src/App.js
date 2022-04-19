@@ -1,3 +1,4 @@
+import React from "react"
 import tw from "tailwind-styled-components"
 import Navbar from "./components/navbar/Navbar"
 
