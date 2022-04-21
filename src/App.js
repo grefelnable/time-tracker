@@ -13,8 +13,9 @@ function App() {
           <Route index element={<Dashboard />} />
           {/* notes */}
           <Route path="notes" element={<Notes />} />
-          {/* profile */}
           {/* logout */}
+
+          {/* profile */}
         </Route>
       </Routes>
     </BrowserRouter>

@@ -4,11 +4,11 @@ import { BiMenuAltLeft } from "react-icons/bi"
 import { IoIosArrowDown } from "react-icons/io"
 import { BsPlayCircleFill, BsFillStopCircleFill } from "react-icons/bs"
 
-const Navbar = () => {
+const Navbar = ({ hideSidebar, setHideSidebar }) => {
   const [start, setStart] = useState(true)
   return (
     <Container>
-      <MenuBtn type="button">
+      <MenuBtn type="button" onClick={() => setHideSidebar(!hideSidebar)}>
         <BiMenuAltLeft />
       </MenuBtn>
       <Activity>
@@ -28,6 +28,7 @@ export default Navbar
 
 const Container = tw.header`
 bg-white flex justify-between h-max items-center
+shadow-md
 
 
 `
