@@ -28,7 +28,7 @@ export default Navbar
 
 const Container = tw.header`
 bg-white flex justify-between h-max items-center
-border border-yellow-400
+
 
 `
 const MenuBtn = tw.button`

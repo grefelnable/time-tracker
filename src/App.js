@@ -1,21 +1,25 @@
 import React from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import tw from "tailwind-styled-components"
-import Navbar from "./components/navbar/Navbar"
+import SharedLayout from "./components/sharedLayout/SharedLayout"
+import Dashboard from "./components/dashboard/Dashboard"
+import Notes from "./components/notes/Notes"
 
 function App() {
   return (
-    <Wrapper>
-      <Navbar />
-      {/* sidebar */}
-      {/* profile */}
-      {/* dashboard */}
-      {/* notes */}
-      {/* logout */}
-    </Wrapper>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          {/* dashboard */}
+          <Route index element={<Dashboard />} />
+          {/* notes */}
+          <Route path="/notes" element={<Notes />} />
+          {/* profile */}
+          {/* logout */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
 export default App
-
-const Wrapper = tw.div`
-`
