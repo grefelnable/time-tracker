@@ -59,3 +59,12 @@ small,
 .text-small {
   font-size: 0.833rem;
 }
+
+/* Sidebar */
+.height {
+  height: calc(100vh - 52px);
+}
+.active {
+  background: rgb(5 150 105);
+  border-radius: 0.5rem;
+}
