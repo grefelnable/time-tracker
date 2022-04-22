@@ -1,16 +1,23 @@
 import React from "react"
 import tw from "tailwind-styled-components"
-import { BsPlusCircle } from "react-icons/bs"
+import { BsPlusLg } from "react-icons/bs"
+import Activity from "./Activity"
 
 const Dashboard = () => {
   return (
     <Section>
-      <Heading>
-        <Title>Projects</Title>
+      <Wrapper>
+        <Title>Activities</Title>
         <Button type="button">
-          <BsPlusCircle />
+          Add Activity
+          <BsPlusLg />
         </Button>
-      </Heading>
+        <Wrap>
+          <Activity />
+          <Activity />
+          <Activity />
+        </Wrap>
+      </Wrapper>
     </Section>
   )
 }
@@ -21,13 +28,17 @@ export default Dashboard
 const Section = tw.section`
 bg-slate-700 height-custom pt-10
 `
-const Heading = tw.div`
-border-red-500 border-solid border-2
-mx-auto flex justify-center
-`
+const Wrapper = tw.div`w-11/12 mx-auto`
+
 const Title = tw.h2`
-bg-emerald-500 text-white text-xl tracking-wide
+bg-emerald-500 text-white text-xl tracking-wide px-14 py-2 w-fit mx-auto
+mb-4 rounded-md
 `
 const Button = tw.button`
-bg-white
+bg-white mx-auto flex items-center gap-4 py-2 px-4 shadow-2xl rounded-xl
+transition-linear duration-200 hover:scale-110 active:scale-100
+mb-6
+`
+const Wrap = tw.div`
+
 `
