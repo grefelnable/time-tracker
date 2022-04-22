@@ -28,7 +28,7 @@ export default Navbar
 
 const Container = tw.header`
 bg-white flex justify-between h-max items-center
-shadow-md
+shadow-xl
 
 
 `
@@ -42,7 +42,7 @@ flex gap-2 items-center  bg-slate-200 py-1 pl-3 mr-2 h-10 rounded-3xl
 
 const Text = tw.p`
 text-sm
- `
+`
 
 const ActivityBtn = tw.button`
 

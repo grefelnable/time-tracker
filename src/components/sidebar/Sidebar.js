@@ -32,9 +32,9 @@ export default Sidebar
 //Styles
 const Wrapper = tw.div`
 absolute top-52px left-0 w-2/5 
-bg-slate-600 flex flex-col text-white pt-5 px-2 gap-2 
+bg-slate-600 flex flex-col text-white pt-9 px-2 gap-2 
 transition-transform duration-500
-height
+height-custom
 `
 const Button = tw.button`
 flex items-center gap-3 capitalize 

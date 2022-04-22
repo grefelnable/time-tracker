@@ -11,7 +11,9 @@ const SharedLayout = () => {
   return (
     <>
       <Navbar setHideSidebar={setHideSidebar} hideSidebar={hideSidebar} />
-      {!hideSidebar && <BlurBackground />}
+      {!hideSidebar && (
+        <BlurBackground onClick={() => setHideSidebar(!hideSidebar)} />
+      )}
       <Sidebar hideSidebar={hideSidebar} />
 
       <Outlet />
@@ -23,6 +25,6 @@ export default SharedLayout
 
 //Style
 const BlurBackground = tw.div`
-backdrop-blur height absolute top-52px left-0 w-full 
+backdrop-blur height-custom absolute top-52px left-0 w-full 
 
 `
