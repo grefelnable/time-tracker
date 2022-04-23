@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom"
 import tw from "tailwind-styled-components"
 import { MdOutlineDashboard, MdOutlineStickyNote2 } from "react-icons/md"
 
-const Sidebar = ({ hideSidebar }) => {
+const Sidebar = ({ hideSidebar, setHideSidebar }) => {
   return (
     <Wrapper className={hideSidebar ? `hide` : `show`}>
       {/* Links */}
       <NavLink to="/">
-        <Button type="button">
+        <Button type="button" onClick={() => setHideSidebar(!hideSidebar)}>
           <Icon>
             <MdOutlineDashboard />
           </Icon>
@@ -16,7 +16,7 @@ const Sidebar = ({ hideSidebar }) => {
         </Button>
       </NavLink>
       <NavLink to="/notes">
-        <Button type="button">
+        <Button type="button" onClick={() => setHideSidebar(!hideSidebar)}>
           <Icon>
             <MdOutlineStickyNote2 />
           </Icon>

@@ -19,7 +19,7 @@ export default Navbar
 
 const Container = tw.header`
 bg-white flex justify-between h-max items-center
-shadow-xl pr-2
+shadow-xl pr-6
 
 
 `

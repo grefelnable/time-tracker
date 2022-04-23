@@ -14,7 +14,7 @@ const SharedLayout = () => {
       {!hideSidebar && (
         <BlurBackground onClick={() => setHideSidebar(!hideSidebar)} />
       )}
-      <Sidebar hideSidebar={hideSidebar} />
+      <Sidebar hideSidebar={hideSidebar} setHideSidebar={setHideSidebar} />
 
       <Outlet />
     </>
