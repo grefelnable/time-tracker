@@ -6,7 +6,7 @@ import {
   BsBarChartFill,
 } from "react-icons/bs"
 
-const Activity = () => {
+const Activity = ({ name }) => {
   const [startIcon, setStartIcon] = useState(true)
   const [isActive, setIsActive] = useState(false)
   const [time, setTime] = useState(0)
@@ -47,7 +47,7 @@ const Activity = () => {
 
     let totalTime = hour + minutes
     console.log(totalTime)
-    localStorage.setItem("timeData", JSON.stringify(totalTime))
+    localStorage.setItem(`${name}`, JSON.stringify(totalTime))
   }
   const getTime = () => {
     let data = localStorage.getItem("timeData")
@@ -57,7 +57,7 @@ const Activity = () => {
   return (
     <SingleActivity>
       <Header>
-        <ActivityTitle>Activity</ActivityTitle>
+        <ActivityTitle>{name}</ActivityTitle>
         {isActive && `${hour}:${minutes}:${seconds}`}
         {startIcon && (
           <StartBtn
@@ -88,10 +88,10 @@ const Activity = () => {
         <BsBarChartFill />
       </ChartBtn>
       <BorderLine></BorderLine>
-      <ActivityLog>
-        <ActivityName>Learn Coding</ActivityName>
-        <Duration>35 min</Duration>
-      </ActivityLog>
+      {/* <ActivityLog>
+        <ActivityName>{name}</ActivityName>
+        <Duration>35</Duration>
+      </ActivityLog> */}
     </SingleActivity>
   )
 }
@@ -106,7 +106,7 @@ const Header = tw.div`relative
 flex items-center justify-between pr-12
 `
 const ActivityTitle = tw.h4`
-text-violet-200
+text-violet-200 capitalize
 `
 
 const StartBtn = tw.button`
@@ -123,12 +123,12 @@ const BorderLine = tw.div`
 w-full bg-violet-400 h-px
 `
 
-const ActivityLog = tw.div`
-text-violet-200 pt-2 flex justify-between
-`
-const ActivityName = tw.small`
+// const ActivityLog = tw.div`
+// text-violet-200 pt-2 flex justify-between
+// `
+// const ActivityName = tw.small`
 
-`
-const Duration = tw.small`
+// `
+// const Duration = tw.small`
 
-`
+// `

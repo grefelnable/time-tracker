@@ -13,8 +13,8 @@ const Dashboard = () => {
     return (
       <CreateActivity
         setIsOpen={setIsOpen}
-        setActivityName={setActivityNames}
-        activityName={activityNames}
+        setActivityNames={setActivityNames}
+        activityNames={activityNames}
       />
     )
   }
@@ -32,7 +32,12 @@ const Dashboard = () => {
           Add Activity
           <BsPlusLg />
         </Button>
-        <Wrap>{activityNames}</Wrap>
+        <Wrap>
+          {activityNames.map((activity) => {
+            const { id, name } = activity
+            return <Activity name={name} key={id} />
+          })}
+        </Wrap>
       </Wrapper>
     </Section>
   )

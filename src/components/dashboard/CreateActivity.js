@@ -19,6 +19,7 @@ const CreateActivity = ({ setIsOpen, setActivityNames, activityNames }) => {
         <InputName
           type="text"
           placeholder="Untitled Activity..."
+          required
           onChange={(e) => setGetName(e.target.value)}
         />
         <CreatBtn
