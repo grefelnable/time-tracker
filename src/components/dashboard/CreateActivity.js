@@ -41,7 +41,7 @@ export default CreateActivity
 // Styles
 const Wrapper = tw.div`
 h-screen w-full absolute top-0 grid place-items-center
-bg-slate-500 opacity-75
+bg-slate-900 opacity-75
 `
 const CloseBtn = tw.button`
 absolute -top-2 -right-2 text-3xl text-red-700

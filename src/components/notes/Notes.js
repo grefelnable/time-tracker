@@ -16,12 +16,13 @@ const Notes = () => {
     db.collection("notes")
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) => {
-        setNotesData(snapshot.docs.map((doc) => doc.data()))
+        setNotesData(
+          snapshot.docs.map((doc) => ({ id: doc.id, note: doc.data() }))
+        )
       })
   }, [])
 
   const textAreaRef = React.useRef(null)
-
   // grow textarea with user text input
   const autoGrow = (elem) => {
     elem.current.style.height = "5px"
@@ -84,8 +85,8 @@ const Notes = () => {
       </NoteInput>
 
       <NotesWrapper>
-        {notesData.map((note, index) => (
-          <SingleNote note={note} key={index} />
+        {notesData.map((note) => (
+          <SingleNote note={note.note} id={note.id} key={note.id} />
         ))}
       </NotesWrapper>
     </Section>
@@ -117,7 +118,7 @@ w-11/12 max-w-6xl mx-auto grid gap-2 md:grid-cols-2 lg:grid-cols-4
 `
 //button
 const Button = tw.button`
-text-slate-400 text-3xl absolute -bottom-4 left-2 bg-slate-700
+text-slate-400 text-2xl absolute -bottom-4 left-2 bg-slate-700
 rounded-full shadow-2xl transition-linear duration-200 hover:scale-105
 
 `
