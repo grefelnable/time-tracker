@@ -1,5 +1,6 @@
 import React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+
 import SharedLayout from "./components/sharedLayout/SharedLayout"
 import Dashboard from "./components/dashboard/Dashboard"
 import Notes from "./components/notes/Notes"
