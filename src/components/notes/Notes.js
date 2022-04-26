@@ -2,22 +2,23 @@ import React, { useState } from "react"
 import tw from "tailwind-styled-components"
 import SingleNote from "./SingleNote"
 import { BsPlusCircle } from "react-icons/bs"
-
-//firebase config
-// const firebase = {
-//   apiKey: "AIzaSyABp8PCrcgyBJ9n4EZE3IbWSusUDMaJoG4",
-//   authDomain: "time-tracker-51d4e.firebaseapp.com",
-//   projectId: "time-tracker-51d4e",
-//   storageBucket: "time-tracker-51d4e.appspot.com",
-//   messagingSenderId: "1081749694837",
-//   appId: "1:1081749694837:web:0ad638975b6953aabfcb3c",
-// }
+import { db } from "../../firebase"
+import firebase from "firebase/compat/app"
 
 const Notes = () => {
   const [showInput, setShowInput] = useState(false)
   const [textValue, setTextValue] = useState("")
   const [titleValue, setTitleValue] = useState("")
   const [notesData, setNotesData] = useState([])
+
+  //fetch new notes as they get added/removed
+  React.useEffect(() => {
+    db.collection("notes")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        setNotesData(snapshot.docs.map((doc) => doc.data()))
+      })
+  }, [])
 
   const textAreaRef = React.useRef(null)
 
@@ -33,10 +34,11 @@ const Notes = () => {
       let noteObj = {
         title: titleValue,
         text: textValue,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       }
+      db.collection("notes").add(noteObj)
       setTextValue("")
       setTitleValue("")
-      setNotesData([...notesData, noteObj])
     }
   }
 
@@ -111,7 +113,7 @@ const TextArea = tw.textarea`
 block w-full bg-slate-700 resize-none text-slate-300 placeholder:text-slate-300
 `
 const NotesWrapper = tw.div`
-w-11/12 mx-auto grid gap-2 md:grid-cols-2 lg:grid-cols-4
+w-11/12 max-w-6xl mx-auto grid gap-2 md:grid-cols-2 lg:grid-cols-4
 `
 //button
 const Button = tw.button`

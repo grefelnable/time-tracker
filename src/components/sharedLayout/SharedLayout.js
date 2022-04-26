@@ -26,5 +26,5 @@ export default SharedLayout
 //Style
 const BlurBackground = tw.div`
 backdrop-blur height-custom absolute top-52px left-0 w-full 
-
+z-10
 `
